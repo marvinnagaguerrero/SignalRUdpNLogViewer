@@ -1,0 +1,4 @@
+.error, .ERROR {color:orange;background-color: black;}
+.trace, .TRACE {color:black;background-color: #7EA2C6;}
+.info, .INFO {color:black;background-color: pink;}
+.fatal, .FATAL {color:red;background-color: black;}
