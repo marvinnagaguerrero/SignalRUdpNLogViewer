@@ -9,24 +9,50 @@ connection.start().then(function () {
     // });
 });
 
-connection.on("notify",  function(xmlmessage)  {
+connection.on("notify", function (xmlmessage) {
     parser = new DOMParser();
+    console.log(xmlmessage);
+    
     let xmlDoc = parser.parseFromString(xmlmessage.replace(/log4j:/g, ""), "text/xml");
 
     let message = xmlDoc.getElementsByTagName("message")[0].textContent;
     let msglevel = xmlDoc.documentElement.getAttribute("level");
-    let tdiv = document.createElement("div");
-    tdiv.className = msglevel;
-    const hr = document.createElement("hr");
-    tdiv.textContent = message;
+    //let tRow = document.createElement("tr");
 
     let mylist = document.getElementById("loglist");
+    let tRow = mylist.insertRow(1);
+    tRow.className = msglevel + " log row";
+    tRow.textContent = message;
+
     
-    if (mylist.childNodes.length >= rowlimit)
-    {
-        mylist.lastChild.remove();
-    }
-    tdiv.appendChild(hr);
-    mylist.insertBefore(tdiv, mylist.firstChild);
+
+    // if (mylist.childNodes.length >= rowlimit) {
+    //     mylist.lastChild.remove();
+    // }
+    // mylist.insertRow(0);
+    //mylist.firstChild.insertAdjacentElement(1, tRow);
+    //let rowheader = document.getElementById("loglistRowHeader");
+    //rowheader.insertAdjacentElement(tRow, 2); //, mylist.childNodes(1));
 });
 
+$(document).ready(function () {
+    $("#btnTrace").click(function () {
+        $("tr.trace, tr.TRACE").toggle();
+    });
+    $("#btnDebug").click(function () {
+        $("tr.debug, tr.DEBUG").toggle();
+    });
+    $("#btnInfo").click(function () {
+        $("tr.info, tr.INFO").toggle();
+    });
+    $("#btnError").click(function () {
+        $("tr.error, tr.ERROR").toggle();
+    });
+    $("#btnFatal").click(function () {
+        $("tr.fatal, tr.FATAL").toggle();
+    });
+});
+
+$(window).on("load", function () {
+    console.log("window loaded");
+});

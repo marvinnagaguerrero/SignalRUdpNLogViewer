@@ -1,20 +1,50 @@
 ﻿<html>
 <link rel="stylesheet" type="text/css" href="css/hubstyle.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+
 <head>
     <title>ASP.NET Core SignalR UDP Log Viewer</title>
 </head>
+
 <body>
     <h1>ASP.NET Core SignalR UDP Log Viewer</h1>
-
     <div class="container">
-        <hr/>
-        <div id="loglist">
-
+        <div class="row">
+            <div class="col-sm">
+                <button id="btnTrace" type="button" class="btn trace">Trace</button>
+                <div class="trace">*******</div>
+            </div>
+            <div class="col-sm">
+                <button id="btnDebug" type="button" class="btn debug">Debug</button>
+                <div class="debug">*******</div>
+            </div>
+            <div class="col-sm">
+                <button id="btnInfo" type="button" class="btn info">Info</button>
+                <div class="info">*******</div>
+            </div>
+            <div class="col-sm">
+                <button id="btnError" type="button" class="btn error">error</button>
+                <div class="error">*******</div>
+            </div>
+            <div class="col-sm">
+                <button id="btnFatal" type="button" class="btn fatal">fatal</button>
+                <div class="fatal">*******</div>
+            </div>
         </div>
-        <hr/>
     </div>
+    <hr/>
+    <table class="container fullwidth" id="loglist">
+        <tr id="loglistRowHeader">
+            <th>Message</th>
+        </tr>
+    </table>
     <script src="lib/signalr.min.js"></script>
+    <script src="lib/Jquery_3_3_1.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+
     <script src="lib/signallogger.js"></script>
+
 </body>
 
 </html>

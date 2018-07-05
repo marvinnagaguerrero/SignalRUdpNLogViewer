@@ -2,3 +2,27 @@
 .trace, .TRACE {color:black;background-color: #7EA2C6;}
 .info, .INFO {color:black;background-color: pink;}
 .fatal, .FATAL {color:red;background-color: black;}
+.debug, .DEBUG {color:blue;background-color: lightcyan;}
+
+
+#loglist {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#loglist td, #loglist th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#loglist tr:hover {background-color: #ddd;}
+#loglist th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    width:100%;
+    padding:0 0 0 0;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

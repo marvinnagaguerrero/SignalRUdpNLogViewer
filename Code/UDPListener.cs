@@ -15,7 +15,7 @@ namespace MNG
 {
     public class UDPListener
     {
-        private const int listenPort = 9998;
+        private const int listenPort = 9995;
 
         private IHubContext<LoggerHub> Hub { get; set; }
 

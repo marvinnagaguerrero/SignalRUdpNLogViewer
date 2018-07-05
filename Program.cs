@@ -20,14 +20,14 @@ namespace SGSLogViewer
         {
             pathToExe = Process.GetCurrentProcess().MainModule.FileName;
             pathToContentRoot = Path.GetDirectoryName(pathToExe);
-            //CreateWebHostBuilder(args).Build().Run();
-            CreateWebHostBuilder(args).Build().RunAsService();
+            CreateWebHostBuilder(args).Build().Run();
+            //CreateWebHostBuilder(args).Build().RunAsService();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
-                  .UseUrls("http://0.0.0.0:7575")
-                  .UseContentRoot(pathToContentRoot)
+                //  .UseUrls("http://0.0.0.0:7577")
+                //  .UseContentRoot(pathToContentRoot)
                   .UseStartup<Startup>();
     }
 }
